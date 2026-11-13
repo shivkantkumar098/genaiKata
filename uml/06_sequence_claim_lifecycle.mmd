@@ -1,0 +1,44 @@
+sequenceDiagram
+    autonumber
+    actor PH as Policyholder
+    participant API as FastAPI backend
+    actor ADJ as Adjuster
+    actor ADM as Admin
+
+    Note over PH,API: Claim already analysed by the AI assistant (status: draft)
+
+    PH->>API: POST /claims/{id}/start
+    API->>API: re-verify verdict = covered and clause exists in DB
+    API-->>PH: reference CLM-…, status submitted ("AI Verified")
+
+    PH->>API: GET /adjusters?category=… then POST /bookings (slot)
+    API->>API: atomic slot free → booked, claim.adjuster = adjuster
+    API-->>ADJ: notification "new booking"
+    API-->>PH: booking confirmed, status adjuster_booked ("Pending Adjuster")
+
+    loop each required document
+        PH->>API: POST /me/claims/{id}/documents (JPEG/PNG/PDF ≤ 5 MB)
+        API-->>ADJ: notification "document uploaded"
+    end
+
+    ADJ->>API: POST …/documents/{doc}/review (verified / rejected + note)
+    API-->>PH: notification "document verified / rejected"
+
+    ADJ->>API: POST /adjuster/claims/{id}/inspection (notes)
+    API-->>PH: status inspected, notification
+
+    ADJ->>API: POST /adjuster/claims/{id}/settlement (amount)
+    API->>API: check amount ≤ sum insured and no documents outstanding
+    API-->>PH: status settlement_proposed ("In Review")
+
+    ADM->>API: POST /admin/claims/{id}/decision {approve}
+    API->>API: payout_due = today + 5 days
+    API-->>PH: status approved, notification with payout date
+
+    ADM->>API: POST /admin/claims/{id}/decision {pay}
+    API-->>PH: status settled ("Paid Out"), notification "payout sent"
+
+    opt Admin rejects at any open stage
+        ADM->>API: decision {reject, reason}
+        API-->>PH: status rejected + reason
+    end

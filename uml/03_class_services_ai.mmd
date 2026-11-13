@@ -1,0 +1,91 @@
+classDiagram
+    direction TB
+
+    class AssistantService {
+        -LLMClient llm
+        -CoverageRetriever retriever
+        +analyze(db, holder, policy, text, files) AnalysisResponse
+        -_classify(text, images) IncidentResult
+        -_check_coverage(db, policy, text) CoverageResult
+    }
+
+    class LLMClient {
+        <<interface>>
+        +complete_json(schema_name, system, user, images) dict
+    }
+    class MockLLM {
+        deterministic, offline
+    }
+    class GroqLLM {
+        vision + JSON output
+    }
+    class LoggedLLM {
+        -LLMClient inner
+        records latency, errors
+    }
+
+    class CoverageRetriever {
+        <<interface>>
+        +retrieve(db, policy_type, query) PolicyClause[]
+    }
+    class FullContextRetriever
+    class ChromaRetriever {
+        optional, vector search
+    }
+
+    class ClaimsService {
+        +start_claim(db, claim_id, profile_id) ClaimStartOut
+        re-verifies AI verdict against DB
+    }
+    class BookingService {
+        +book_slot(db, data) BookingOut
+        atomic free→booked
+    }
+    class AdjusterFinder {
+        +find_adjusters(db, category, lat, lon)
+    }
+    class Workflow {
+        +add_event(db, claim, actor, message, status)
+        +notify(db, user_id, kind, title, dedupe_key)
+        +claim_detail(db, claim) dict
+        +document_checklist(db, claim)
+        +pending_actions(db, claim)
+    }
+    class Reminders {
+        +compute_reminders(db, holder_id)
+        +materialize_all(db) int
+    }
+    class IoTService {
+        +ingest(db, policy_number, source, kind, ...) IoTEvent
+        +link(db, event, claim, actor)
+    }
+    class DashboardService {
+        +dashboard(db, holder_id)
+        +safety_score(db, policy_ids)
+    }
+    class AdminAuth {
+        +hash_password() / verify_password()
+        +issue_token(role, user_id)
+        +require_role(role) / require_admin()
+    }
+    class LogStore {
+        +record(level, source, message)
+        ring buffer, 500 entries
+    }
+
+    LLMClient <|.. MockLLM
+    LLMClient <|.. GroqLLM
+    LLMClient <|.. LoggedLLM
+    LoggedLLM o-- LLMClient : wraps
+    CoverageRetriever <|.. FullContextRetriever
+    CoverageRetriever <|.. ChromaRetriever
+
+    AssistantService --> LLMClient : Strategy
+    AssistantService --> CoverageRetriever : Strategy
+    AssistantService ..> LogStore : fallback warnings
+    LoggedLLM ..> LogStore
+    ClaimsService ..> Workflow
+    BookingService ..> Workflow
+    IoTService ..> Workflow
+    Reminders ..> Workflow
+    DashboardService ..> Workflow

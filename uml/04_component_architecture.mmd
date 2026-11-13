@@ -1,0 +1,62 @@
+flowchart TB
+    subgraph CLIENT ["Browser: React + TypeScript SPA (Vite)"]
+        direction LR
+        LOGIN["Login"]
+        CP["CustomerPortal<br/>Dashboard · File New Claim · My Policies<br/>Adjuster Directory · Telematics and IoT · Settings"]
+        AP["AdjusterPortal<br/>Schedule · Assigned claims"]
+        ADP["AdminPortal<br/>Overview · Claims · Accounts · Logs"]
+        APIC["api.ts<br/>bearer token, 401 → sign-out"]
+    end
+
+    DEV(["IoT devices<br/>car · home sensor · wearable"])
+
+    subgraph API ["FastAPI backend  /api"]
+        direction TB
+        subgraph ROUTERS ["Routers"]
+            direction LR
+            R1["auth_routes<br/>login · password · notifications · documents"]
+            R2["customer<br/>/me/*"]
+            R3["adjuster<br/>/adjuster/*"]
+            R4["admin<br/>/admin/*"]
+            R5["iot_routes<br/>/iot/events"]
+            R6["routes<br/>chat/analyze · claims · bookings · logs"]
+        end
+        SEC["admin_auth<br/>scrypt · sessions · role + ownership checks"]
+        subgraph SERVICES ["Services"]
+            direction LR
+            S1["assistant<br/>AI intake facade"]
+            S2["claims · booking · adjusters"]
+            S3["workflow<br/>timeline · notifications · documents"]
+            S4["reminders · dashboard"]
+            S5["iot"]
+        end
+        subgraph AI ["AI layer"]
+            direction LR
+            L1["LLMClient strategy<br/>Mock · Groq · LoggedLLM"]
+            L2["CoverageRetriever strategy<br/>FullContext · Chroma"]
+            L3["prompts/*.txt"]
+        end
+        LOG["logstore<br/>ring buffer"]
+    end
+
+    DB[("SQLite in-memory<br/>SQLAlchemy ORM<br/>seeded on start")]
+    EXT(["LLM gateway<br/>vision + JSON"])
+
+    LOGIN --> APIC
+    CP --> APIC
+    AP --> APIC
+    ADP --> APIC
+    APIC -->|"HTTPS JSON / multipart<br/>Authorization: Bearer"| ROUTERS
+    DEV -->|"X-Device-Key"| R5
+
+    ROUTERS --> SEC
+    R1 & R2 & R3 & R4 & R6 --> SERVICES
+    R5 --> S5
+    S1 --> L1
+    S1 --> L2
+    L1 -->|"HTTPS"| EXT
+    L1 -.-> LOG
+    S1 -.-> LOG
+    SERVICES --> DB
+    SEC --> DB
+    L2 --> DB

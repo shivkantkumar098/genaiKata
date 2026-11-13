@@ -1,0 +1,33 @@
+sequenceDiagram
+    autonumber
+    participant DEV as Connected device
+    participant API as POST /iot/events
+    participant IOT as IoTService
+    participant DB as Database
+    actor PH as Policyholder
+    actor ADJ as Adjuster
+
+    DEV->>API: {policy_number, source, kind, severity, readings}<br/>header X-Device-Key
+    API->>API: constant-time key check, payload size limit
+    API->>IOT: ingest(...)
+    IOT->>DB: policy by number
+    IOT->>IOT: event kind must match policy type<br/>(e.g. water_leak ↔ home)
+    IOT->>DB: save IoTEvent
+
+    alt open claim of same type within ±3 days
+        IOT->>DB: event.claim = claim, add timeline entry
+        IOT-->>ADJ: notification "new device evidence"
+    else no matching claim
+        IOT-->>PH: notification "incident detected, file a claim to attach it"
+    end
+    Note over IOT,PH: Notifications respect the holder's preferences (device alerts on/off)
+    API-->>DEV: 201 {id, linked}
+
+    PH->>API: GET /me/dashboard or /me/devices
+    API->>DB: events in last 90 days
+    API-->>PH: safety score = 100 − Σ penalty (high 8, medium 4, low 1)
+
+    opt event not linked automatically
+        PH->>API: POST /me/devices/{id}/attach {claim_id}
+        API->>IOT: link(event, claim) after ownership + type checks
+    end

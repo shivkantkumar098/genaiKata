@@ -1,0 +1,40 @@
+stateDiagram-v2
+    direction TB
+    [*] --> draft : AI analysis saved<br/>(chat/analyze)
+
+    draft --> submitted : Policyholder starts claim<br/>[verdict = covered ∧ clause exists in DB]
+    draft --> adjuster_booked : Policyholder books adjuster
+    submitted --> adjuster_booked : Policyholder books adjuster<br/>(slot claimed atomically)
+
+    submitted --> inspected : Adjuster records inspection
+    adjuster_booked --> inspected : Adjuster records inspection
+
+    inspected --> settlement_proposed : Adjuster proposes amount<br/>[amount ≤ sum insured ∧ documents complete]
+    settlement_proposed --> settlement_proposed : Adjuster revises proposal
+    settlement_proposed --> approved : Admin approves<br/>payout_due = today + 5 days
+    approved --> settled : Admin marks paid out
+
+    submitted --> rejected : Admin rejects (reason required)
+    adjuster_booked --> rejected : Admin rejects
+    inspected --> rejected : Admin rejects
+    settlement_proposed --> rejected : Admin rejects
+    approved --> rejected : Admin rejects
+
+    settled --> [*]
+    rejected --> [*]
+
+    note right of draft
+        Not shown to the policyholder as a claim
+    end note
+    note right of submitted
+        UI label: AI Verified
+    end note
+    note right of adjuster_booked
+        UI label: Pending Adjuster
+    end note
+    note right of settlement_proposed
+        UI label: In Review
+    end note
+    note right of settled
+        UI label: Paid Out
+    end note

@@ -1,0 +1,125 @@
+classDiagram
+    direction LR
+
+    class User {
+        +int id
+        +str username
+        +str password_hash
+        +str role  «customer|adjuster|admin»
+        +str display_name
+        +bool active
+        +dict prefs
+    }
+    class PolicyHolder {
+        +int id
+        +str full_name
+        +str phone
+        +str tier  «basic|premium»
+    }
+    class Policy {
+        +int id
+        +str number
+        +str type  «motor|home|health»
+        +str asset_ref
+        +date renewal_date
+        +float premium_amount
+        +date premium_due_date
+        +float sum_insured
+    }
+    class PolicyClause {
+        +str policy_type
+        +str clause_ref
+        +str text
+    }
+    class Claim {
+        +int id
+        +str type
+        +str title
+        +str description
+        +dict analysis
+        +str status
+        +datetime created_at
+        +str inspection_notes
+        +float settlement_amount
+        +str settlement_status  «none|proposed|approved|paid»
+        +date payout_due
+        +str decision_note
+    }
+    class Adjuster {
+        +int id
+        +str full_name
+        +str specialization
+        +str office_address
+        +float lat
+        +float lon
+        +str contact
+    }
+    class Slot {
+        +int id
+        +datetime start
+        +datetime end
+        +str status  «free|booked»
+    }
+    class Booking {
+        +int id
+        +str mode  «audio|video|onsite|chat»
+        +str contact_name
+        +str contact_phone
+        +str meeting_link
+        +str notes
+    }
+    class ClaimEvent {
+        +datetime ts
+        +str actor
+        +str status
+        +str message
+    }
+    class ClaimDocument {
+        +str doc_name
+        +str filename
+        +str mime
+        +str status  «received|verified|rejected»
+        +str review_note
+    }
+    class Attachment {
+        +str filename
+        +str mime
+        +bytes data
+    }
+    class IoTEvent {
+        +str source  «telematics|home_sensor|wearable»
+        +str kind
+        +str severity
+        +dict readings
+        +datetime occurred_at
+    }
+    class Notification {
+        +str kind
+        +str title
+        +str body
+        +bool read
+        +str dedupe_key
+    }
+    class Feedback {
+        +str target_type
+        +int target_id
+        +int rating
+        +str comment
+    }
+
+    PolicyHolder "1" --> "1..*" Policy : owns
+    PolicyHolder "1" --> "0..*" Claim : files
+    Policy "1" --> "0..*" Claim : covers
+    Policy "1" --> "0..*" IoTEvent : reports
+    Policy ..> PolicyClause : type matches
+    Adjuster "1" --> "0..*" Slot : publishes
+    Adjuster "1" --> "0..*" Claim : handles
+    Slot "1" --> "0..1" Booking : booked as
+    Claim "1" --> "0..*" Booking : inspection
+    Claim "1" *-- "0..*" ClaimEvent : timeline
+    Claim "1" *-- "0..*" ClaimDocument : documents
+    Claim "1" *-- "0..*" Attachment : AI photos
+    Claim "1" o-- "0..*" IoTEvent : evidence
+    User "0..1" --> "1" PolicyHolder : customer login
+    User "0..1" --> "1" Adjuster : adjuster login
+    User "1" --> "0..*" Notification : receives

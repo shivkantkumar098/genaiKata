@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1700 880" width="1700" height="880" font-family="Segoe UI, Arial, sans-serif">
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1C2333"/></marker></defs>
+<rect width="1700" height="880" fill="#fff"/>
+<rect x="200" y="20" width="1260" height="820" rx="10" fill="none" stroke="#1C2333" stroke-width="2"/>
+<text x="212" y="36.0" text-anchor="start" dominant-baseline="middle" font-size="15" font-weight="700" fill="#1C2333">InsureNdClaim</text>
+<rect x="215" y="55" width="1230" height="260" rx="8" fill="#2F5BEA" fill-opacity="0.07" stroke="#2F5BEA" stroke-width="1.2"/>
+<text x="230" y="71.0" text-anchor="start" dominant-baseline="middle" font-size="13" font-weight="700" fill="#2F5BEA">«package» Policyholder</text>
+<rect x="215" y="335" width="1230" height="150" rx="8" fill="#12805C" fill-opacity="0.07" stroke="#12805C" stroke-width="1.2"/>
+<text x="230" y="351.0" text-anchor="start" dominant-baseline="middle" font-size="13" font-weight="700" fill="#12805C">«package» System</text>
+<rect x="215" y="505" width="1230" height="150" rx="8" fill="#6A3DE8" fill-opacity="0.07" stroke="#6A3DE8" stroke-width="1.2"/>
+<text x="230" y="521.0" text-anchor="start" dominant-baseline="middle" font-size="13" font-weight="700" fill="#6A3DE8">«package» Adjuster</text>
+<rect x="215" y="675" width="1230" height="150" rx="8" fill="#12805C" fill-opacity="0.07" stroke="#12805C" stroke-width="1.2"/>
+<text x="230" y="691.0" text-anchor="start" dominant-baseline="middle" font-size="13" font-weight="700" fill="#12805C">«package» Admin</text>
+<ellipse cx="335" cy="135" rx="105" ry="29" fill="#EEF2FF" stroke="#2F5BEA" stroke-width="1.5"/>
+<text x="335" y="127.2" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">Log in /</text>
+<text x="335" y="142.8" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">change password</text>
+<ellipse cx="583" cy="135" rx="105" ry="29" fill="#EEF2FF" stroke="#2F5BEA" stroke-width="1.5"/>
+<text x="583" y="127.2" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">File claim with</text>
+<text x="583" y="142.8" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">AI assistant</text>
+<ellipse cx="831" cy="135" rx="105" ry="29" fill="#EEF2FF" stroke="#2F5BEA" stroke-width="1.5"/>
+<text x="831" y="127.2" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">View dashboard</text>
+<text x="831" y="142.8" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">KPIs, reminders, score</text>
+<ellipse cx="1079" cy="135" rx="105" ry="29" fill="#EEF2FF" stroke="#2F5BEA" stroke-width="1.5"/>
+<text x="1079" y="127.2" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">Upload claim</text>
+<text x="1079" y="142.8" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">documents</text>
+<ellipse cx="1327" cy="135" rx="105" ry="29" fill="#EEF2FF" stroke="#2F5BEA" stroke-width="1.5"/>
+<text x="1327" y="127.2" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">Track claim</text>
+<text x="1327" y="142.8" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">stepper, timeline, next steps</text>
+<ellipse cx="459" cy="250" rx="105" ry="29" fill="#EEF2FF" stroke="#2F5BEA" stroke-width="1.5"/>
+<text x="459" y="242.2" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">Browse adjuster directory</text>
+<text x="459" y="257.8" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">and book consultation</text>
+<ellipse cx="707" cy="250" rx="105" ry="29" fill="#EEF2FF" stroke="#2F5BEA" stroke-width="1.5"/>
+<text x="707" y="242.2" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">View policies</text>
+<text x="707" y="257.8" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">and coverage</text>
+<ellipse cx="955" cy="250" rx="105" ry="29" fill="#EEF2FF" stroke="#2F5BEA" stroke-width="1.5"/>
+<text x="955" y="242.2" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">View device evidence</text>
+<text x="955" y="257.8" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">attach to claim</text>
+<ellipse cx="1203" cy="250" rx="105" ry="29" fill="#EEF2FF" stroke="#2F5BEA" stroke-width="1.5"/>
+<text x="1203" y="242.2" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">Manage settings</text>
+<text x="1203" y="257.8" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">notification preferences</text>
+<ellipse cx="583" cy="410" rx="105" ry="29" fill="#E6F6EF" stroke="#12805C" stroke-width="1.5"/>
+<text x="583" y="402.2" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">Check coverage</text>
+<text x="583" y="417.8" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">clause-cited verdict</text>
+<ellipse cx="1327" cy="410" rx="105" ry="29" fill="#E6F6EF" stroke="#12805C" stroke-width="1.5"/>
+<text x="1327" y="410.0" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">Ingest device event</text>
+<ellipse cx="955" cy="410" rx="105" ry="29" fill="#E6F6EF" stroke="#12805C" stroke-width="1.5"/>
+<text x="955" y="410.0" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">Send notification</text>
+<ellipse cx="335" cy="580" rx="105" ry="29" fill="#F1ECFE" stroke="#6A3DE8" stroke-width="1.5"/>
+<text x="335" y="572.2" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">Manage</text>
+<text x="335" y="587.8" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">availability slots</text>
+<ellipse cx="583" cy="580" rx="105" ry="29" fill="#F1ECFE" stroke="#6A3DE8" stroke-width="1.5"/>
+<text x="583" y="572.2" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">View calendar</text>
+<text x="583" y="587.8" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">and bookings</text>
+<ellipse cx="831" cy="580" rx="105" ry="29" fill="#F1ECFE" stroke="#6A3DE8" stroke-width="1.5"/>
+<text x="831" y="572.2" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">Review documents</text>
+<text x="831" y="587.8" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">verify / reject</text>
+<ellipse cx="1079" cy="580" rx="105" ry="29" fill="#F1ECFE" stroke="#6A3DE8" stroke-width="1.5"/>
+<text x="1079" y="580.0" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">Record inspection</text>
+<ellipse cx="1327" cy="580" rx="105" ry="29" fill="#F1ECFE" stroke="#6A3DE8" stroke-width="1.5"/>
+<text x="1327" y="580.0" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">Propose settlement</text>
+<ellipse cx="345" cy="750" rx="92" ry="29" fill="#E6F6EF" stroke="#12805C" stroke-width="1.5"/>
+<text x="345" y="750.0" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">Oversee all claims</text>
+<ellipse cx="550" cy="750" rx="92" ry="29" fill="#E6F6EF" stroke="#12805C" stroke-width="1.5"/>
+<text x="550" y="750.0" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">Assign adjuster</text>
+<ellipse cx="755" cy="750" rx="92" ry="29" fill="#E6F6EF" stroke="#12805C" stroke-width="1.5"/>
+<text x="755" y="750.0" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">Manage accounts</text>
+<ellipse cx="955" cy="750" rx="92" ry="29" fill="#E6F6EF" stroke="#12805C" stroke-width="1.5"/>
+<text x="955" y="742.2" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">Approve / reject /</text>
+<text x="955" y="757.8" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">pay settlement</text>
+<ellipse cx="1150" cy="750" rx="92" ry="29" fill="#E6F6EF" stroke="#12805C" stroke-width="1.5"/>
+<text x="1150" y="750.0" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">Send reminders</text>
+<ellipse cx="1335" cy="750" rx="92" ry="29" fill="#E6F6EF" stroke="#12805C" stroke-width="1.5"/>
+<text x="1335" y="742.2" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">View AI and</text>
+<text x="1335" y="757.8" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="400" fill="#1C2333">HTTP logs</text>
+<g stroke="#1C2333" stroke-width="2" fill="none"><circle cx="100" cy="152" r="10"/><line x1="100" y1="162" x2="100" y2="196"/><line x1="82" y1="172" x2="118" y2="172"/><line x1="100" y1="196" x2="86" y2="220"/><line x1="100" y1="196" x2="114" y2="220"/></g>
+<text x="100" y="236.0" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="600" fill="#1C2333">Policyholder</text>
+<line x1="130" y1="185" x2="215" y2="185" stroke="#1C2333" stroke-width="1.4"/>
+<g stroke="#1C2333" stroke-width="2" fill="none"><circle cx="100" cy="542" r="10"/><line x1="100" y1="552" x2="100" y2="586"/><line x1="82" y1="562" x2="118" y2="562"/><line x1="100" y1="586" x2="86" y2="610"/><line x1="100" y1="586" x2="114" y2="610"/></g>
+<text x="100" y="626.0" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="600" fill="#1C2333">Adjuster</text>
+<line x1="130" y1="575" x2="215" y2="575" stroke="#1C2333" stroke-width="1.4"/>
+<g stroke="#1C2333" stroke-width="2" fill="none"><circle cx="100" cy="712" r="10"/><line x1="100" y1="722" x2="100" y2="756"/><line x1="82" y1="732" x2="118" y2="732"/><line x1="100" y1="756" x2="86" y2="780"/><line x1="100" y1="756" x2="114" y2="780"/></g>
+<text x="100" y="796.0" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="600" fill="#1C2333">Admin</text>
+<line x1="130" y1="745" x2="215" y2="745" stroke="#1C2333" stroke-width="1.4"/>
+<g stroke="#1C2333" stroke-width="2" fill="none"><circle cx="100" cy="372" r="10"/><line x1="100" y1="382" x2="100" y2="416"/><line x1="82" y1="392" x2="118" y2="392"/><line x1="100" y1="416" x2="86" y2="440"/><line x1="100" y1="416" x2="114" y2="440"/></g>
+<text x="100" y="456.0" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="600" fill="#1C2333">LLM gateway</text>
+<line x1="130" y1="405" x2="478" y2="410" stroke="#1C2333" stroke-width="1.4"/>
+<g stroke="#1C2333" stroke-width="2" fill="none"><circle cx="1590" cy="372" r="10"/><line x1="1590" y1="382" x2="1590" y2="416"/><line x1="1572" y1="392" x2="1608" y2="392"/><line x1="1590" y1="416" x2="1576" y2="440"/><line x1="1590" y1="416" x2="1604" y2="440"/></g>
+<text x="1590" y="456.0" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="600" fill="#1C2333">Connected device</text>
+<text x="1590" y="478.0" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="400" fill="#667085">car · home sensor · wearable</text>
+<line x1="1560" y1="405" x2="1432" y2="410" stroke="#1C2333" stroke-width="1.4"/>
+<line x1="583" y1="164" x2="583" y2="381" stroke="#1C2333" stroke-width="1.4" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<rect x="553.0" y="317.75" width="60" height="18" fill="#fff"/>
+<text x="583.0" y="326.8" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="400" fill="#667085">«include»</text>
+<line x1="1287" y1="383" x2="975" y2="278" stroke="#1C2333" stroke-width="1.4" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<rect x="1101.0" y="321.5" width="60" height="18" fill="#fff"/>
+<text x="1131.0" y="330.5" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="400" fill="#667085">«extend»</text>
+<line x1="871" y1="553" x2="915" y2="437" stroke="#1C2333" stroke-width="1.4" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<rect x="863.0" y="486.0" width="60" height="18" fill="#fff"/>
+<text x="893.0" y="495.0" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="400" fill="#667085">«include»</text>
+<line x1="955" y1="721" x2="955" y2="439" stroke="#1C2333" stroke-width="1.4" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<rect x="925.0" y="655.6" width="60" height="18" fill="#fff"/>
+<text x="955.0" y="664.6" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="400" fill="#667085">«include»</text>
+</svg>

@@ -1,0 +1,39 @@
+sequenceDiagram
+    autonumber
+    actor PH as Policyholder
+    participant UI as React Chat component
+    participant R as routes.analyze
+    participant A as AssistantService
+    participant L as LLMClient (LoggedLLM)
+    participant C as CoverageRetriever
+    participant DB as Database
+
+    PH->>UI: describe incident + photos, choose policy
+    UI->>R: POST /chat/analyze (profile_id, policy_number, text, photos)
+    R->>R: customer session, profile_id must equal own holder
+    R->>R: validate images (JPEG/PNG, ≤ 5 MB, ≤ 5 files)
+    R->>A: analyze(holder, policy, text, files)
+
+    A->>L: complete_json("incident", prompt, text, images)
+    alt LLM down or invalid JSON
+        L--xA: error (logged)
+        A->>A: safe fallback: type unknown, ask to rephrase or speak to adjuster
+    else valid JSON
+        L-->>A: claim_type, damage, confidence, questions
+    end
+
+    alt confidence ≥ 0.5 and claim_type = policy type
+        A->>C: retrieve(policy_type, text)
+        C->>DB: policy clauses
+        C-->>A: clauses
+        A->>L: complete_json("coverage", prompt + clauses, text)
+        L-->>A: verdict, clause_ref, explanation
+        A->>A: hallucination guard: clause_ref must be in supplied clauses
+    else not enough information / type mismatch
+        A->>A: coverage = unclear
+    end
+
+    A->>DB: save Claim (status draft) + photo attachments
+    A-->>R: AnalysisResponse (deterministic document list, eligibility)
+    R-->>UI: result card with disclaimer
+    UI-->>PH: coverage + clause, documents needed, "Start a claim" / "Speak with an adjuster"
